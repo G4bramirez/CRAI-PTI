@@ -1,0 +1,26 @@
+npm warn cleanup Failed to remove some directories [
+npm warn cleanup   [
+npm warn cleanup     '\\\\?\\C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\PTI\\node_modules\\next',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\esm\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\PTI\\node_modules\\next\\dist\\esm\\lib'
+npm warn cleanup     }
+npm warn cleanup   ],
+npm warn cleanup   [
+npm warn cleanup     'C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\PTI\\node_modules\\next',
+npm warn cleanup     [Error: ENOTEMPTY: directory not empty, rmdir 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\esm\lib'] {
+npm warn cleanup       errno: -4051,
+npm warn cleanup       code: 'ENOTEMPTY',
+npm warn cleanup       syscall: 'rmdir',
+npm warn cleanup       path: 'C:\\Users\\Pichau\\OneDrive\\Área de Trabalho\\PTI\\node_modules\\next\\dist\\esm\\lib'
+npm warn cleanup     }
+npm warn cleanup   ]
+npm warn cleanup ]
+npm error code ENOTEMPTY
+npm error syscall rmdir
+npm error path C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\esm\server\app-render
+npm error errno -4051
+npm error ENOTEMPTY: directory not empty, rmdir 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\esm\server\app-render'
+npm error A complete log of this run can be found in: C:\Users\Pichau\AppData\Local\npm-cache\_logs\2026-07-21T21_19_25_448Z-debug-0.log

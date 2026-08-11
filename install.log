@@ -1,0 +1,22 @@
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\compiled\@babel\runtime\helpers\esm'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\esm'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, lstat 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\client\components\react-dev-overlay\internal\components'
+npm warn tar TAR_ENTRY_ERROR ENOENT: no such file or directory, open 'C:\Users\Pichau\OneDrive\Área de Trabalho\PTI\node_modules\next\dist\build\babel\plugins\next-font-unsupported.d.ts'
+
+added 104 packages, changed 1 package, and audited 106 packages in 5m
+
+24 packages are looking for funding
+  run `npm fund` for details
+
+2 vulnerabilities (1 moderate, 1 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
