@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "runtimeExecutable": "npm",
+      "port": 3000,
+      "name": "crai-landing"
+    }
+  ],
+  "version": "0.0.1"
+}

@@ -1,24 +1,32 @@
 import type { Metadata } from "next";
+import { Space_Grotesk, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-plex-mono",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
-  title: "CRAI | Retention OS - Recupere sua Receita SaaS",
+  title: "CRAI — Retention OS para SaaS B2B",
   description:
-    "CRAI detecta pagamentos falhados e clientes em risco antes que você perceba — e age automaticamente para recuperar sua receita.",
-  keywords: [
-    "SaaS",
-    "Retenção",
-    "Recuperação de Pagamentos",
-    "Churn",
-    "FinTech",
-  ],
-  authors: [{ name: "CRAI" }],
-  openGraph: {
-    title: "CRAI | Retention OS - Recupere sua Receita SaaS",
-    description:
-      "Detecte e recupere sua receita com inteligência artificial",
-    type: "website",
-  },
+    "Agente de IA autônomo que identifica falhas de pagamento em tempo real e decide o melhor canal, momento e tom para recuperar receita. Success fee sobre o ganho real.",
 };
 
 export default function RootLayout({
@@ -27,14 +35,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className="dark">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className="bg-surface text-on-surface">{children}</body>
+    // Dark mode is the default; AppProvider syncs this class if the user toggles.
+    <html lang="pt" className={`dark ${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

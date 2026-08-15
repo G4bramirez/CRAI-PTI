@@ -1,173 +1,73 @@
-# CRAI Retention OS - Landing Page
+# CRAI — Landing Page
 
-Uma landing page pixel-perfect e responsiva para a CRAI, plataforma SaaS/FinTech focada em recuperação de pagamentos e redução de churn involuntário.
+Landing page single-page (App Router) para a CRAI, um Retention OS de IA para SaaS B2B.
 
-## Stack Tecnológico
-
-- **Next.js 14** - React framework moderno
-- **Tailwind CSS 3.3** - Utility-first CSS framework
-- **TypeScript** - Type-safe development
-- **Material Symbols** - Iconografia
-
-## Características
-
-✅ **Pixel-Perfect Design** - Fidelidade visual 100% ao design fornecido  
-✅ **Responsivo** - Adaptável para mobile, tablet e desktop  
-✅ **Performante** - Otimizado com Next.js 14  
-✅ **Acessível** - Semântica HTML e boas práticas WCAG  
-✅ **Bem Estruturado** - Componentes reutilizáveis e limpos  
-
-## Estrutura do Projeto
-
-```
-crai-landing/
-├── app/
-│   ├── globals.css          # Estilos globais
-│   ├── layout.tsx           # Layout raiz
-│   └── page.tsx             # Página principal
-├── components/
-│   ├── Header.tsx           # Navegação fixa
-│   ├── Hero.tsx             # Seção Hero
-│   ├── TrustBar.tsx         # Barra de estatísticas
-│   ├── ProblemSection.tsx   # Seção de problemas
-│   ├── SolutionSection.tsx  # Seção de soluções
-│   ├── HowItWorks.tsx       # Seção como funciona
-│   ├── Differentials.tsx    # Grid de diferenciais
-│   ├── PricingSection.tsx   # Tabela de preços
-│   ├── FinalCTA.tsx         # CTA final
-│   └── Footer.tsx           # Rodapé
-├── tailwind.config.ts       # Configuração Tailwind
-├── postcss.config.js        # PostCSS config
-├── next.config.js           # Next.js config
-├── tsconfig.json            # TypeScript config
-└── package.json             # Dependências
-```
-
-## Cores Principais
-
-- **Primary:** `#ffb86c` / `#ef9311` (Laranja vibrante)
-- **Background:** `#1a120a` (Marrom escuro)
-- **Surface:** `#141728` (Azul-preto)
-- **Tertiary:** `#89ceff` (Azul claro)
-- **Text:** `#f0e0d2` (Bege claro)
-
-## Tipografia
-
-- **Headlines:** Sora (600-700 weight)
-- **Body:** Inter (400 weight)
-
-## Instalação
-
-### Pré-requisitos
-
-- Node.js 18+ ou superior
-- npm ou yarn
-
-### Passos
+## Rodando localmente
 
 ```bash
-# 1. Clonar ou navegar para o projeto
-cd crai-landing
-
-# 2. Instalar dependências
 npm install
-
-# 3. Rodar servidor de desenvolvimento
 npm run dev
-
-# 4. Abrir no navegador
-# Acesse http://localhost:3000
 ```
 
-## Scripts Disponíveis
+Abra http://localhost:3000.
+
+Para build de produção:
 
 ```bash
-npm run dev      # Inicia servidor de desenvolvimento
-npm run build    # Constrói para produção
-npm start        # Inicia servidor de produção
-npm run lint     # Executa linter ESLint
+npm run build
+npm run start
 ```
 
-## Responsividade
+> O projeto foi compilado e type-checado com sucesso neste ambiente (`next build`).
+> A única parte não verificável no sandbox de desenvolvimento foi o download das
+> fontes do Google Fonts (`next/font/google`), porque o sandbox não tem acesso a
+> `fonts.googleapis.com`. Isso funciona normalmente em qualquer ambiente com
+> internet (local, Vercel, etc.) — nenhuma mudança de código é necessária.
 
-A landing page é totalmente responsiva com breakpoints:
+## Estrutura
 
-- **Mobile:** < 768px (4 colunas)
-- **Tablet:** 768px - 1024px (6 colunas)
-- **Desktop:** 1024px+ (12 colunas)
-
-## Deploy
-
-A aplicação pode ser deployada em qualquer plataforma que suporte Next.js:
-
-### Vercel (Recomendado)
-
-```bash
-npm install -g vercel
-vercel
+```
+app/
+  layout.tsx              # fontes (Space Grotesk, Inter, IBM Plex Mono), dark mode padrão
+  page.tsx                # server component, apenas monta <LandingPage />
+  globals.css             # base styles, grão sutil, foco de teclado, reduced motion
+  context/
+    AppContext.tsx         # estado de tema (dark/light) e idioma (pt/en)
+  lib/
+    i18n.ts                 # dicionário PT/EN completo
+  components/
+    LandingPage.tsx         # composição da página, dentro do AppProvider
+    Header.tsx               # header fixo, nav âncoras, toggles, CTA
+    Hero.tsx                  # título, subtítulo, CTAs, terminal de decisões (elemento assinatura)
+    Features.tsx               # 3 pilares: Decisão Agêntica, Payday Engine, Explicabilidade
+    Pricing.tsx                  # planos Recuperação / Retenção + Insights
+    Footer.tsx                    # logo, aviso LGPD, contato
+tailwind.config.ts          # paleta de marca (#1A120A, #EF9311, #FFB86C) e tokens
+public/logo_crai.png        # logo enviado
 ```
 
-### Docker
+## Decisões de design
 
-```dockerfile
-FROM node:18-alpine
-WORKDIR /app
-COPY package*.json ./
-RUN npm ci
-COPY . .
-RUN npm run build
-EXPOSE 3000
-CMD ["npm", "start"]
-```
+- **Paleta:** fundo `#1A120A` (espresso) com acentos âmbar `#EF9311` → `#FFB86C` em
+  gradiente, conforme guia de identidade. Modo claro usa os mesmos tons como texto,
+  invertendo o par bg/texto para manter a mesma "temperatura" quente nos dois modos.
+- **Tipografia:** Space Grotesk (display, títulos), Inter (corpo) e IBM Plex Mono
+  (dados, tags, o terminal de decisões e a fórmula de pricing) — o mono reforça a
+  identidade "produto de dados/IA" nos pontos onde isso é o argumento central.
+- **Elemento de assinatura:** o hero inclui um "terminal de decisões do agente" que
+  cicla eventos simulados (falha detectada → análise via Payday Engine → decisão de
+  canal/tom/horário → execução → resultado). Isso torna tangível o diferencial mais
+  abstrato do produto (decisão agêntica autônoma e explicabilidade) em vez de um
+  hero genérico de texto + imagem de estoque.
+- **Dark mode:** padrão, com toggle persistido apenas em estado de sessão (sem
+  localStorage, para manter o código simples de revisar); a classe `dark` é aplicada
+  no `<html>` já no server render para evitar flash de tema claro.
+- **i18n:** toggle PT/EN simples via Context + dicionário estático em
+  `app/lib/i18n.ts` — sem biblioteca externa, fácil de estender com mais idiomas.
 
-### Outras Plataformas
+## Próximos passos sugeridos
 
-- **Netlify**
-- **AWS Amplify**
-- **DigitalOcean App Platform**
-
-## Customização
-
-### Alterar Cores
-
-Edite `tailwind.config.ts` na seção `colors`:
-
-```ts
-theme: {
-  extend: {
-    colors: {
-      primary: "#seu-cor-aqui",
-      // ...
-    },
-  },
-}
-```
-
-### Adicionar Fontes
-
-Edite `app/globals.css`:
-
-```css
-@import url("https://fonts.googleapis.com/css2?family=SuaFonte:wght@400;600;700&display=swap");
-```
-
-## Performance
-
-- ⚡ Next.js Image Optimization
-- 🎯 Code Splitting automático
-- 📦 Font subsetting
-- 🚀 Static site generation pronto
-
-## Suporte a Navegadores
-
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-
-## Contato
-
-Para dúvidas sobre o desenvolvimento desta landing page, entre em contato com o time de tecnologia da CRAI.
-
----
-
-**© 2026 CRAI Retention OS. Todos os direitos reservados.**
+- Trocar o link do LinkedIn e o e-mail de contato no rodapé pelos reais.
+- Conectar o CTA "Agendar Demonstração" a um formulário ou link de agendamento
+  (Calendly, HubSpot, etc.) em vez da âncora `#precos`.
+- Adicionar analytics (ex. Plausible, PostHog) se for medir conversão do CTA.

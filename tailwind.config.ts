@@ -1,117 +1,68 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        "surface-variant": "#3d332a",
-        "on-primary-fixed": "#2c1700",
-        "inverse-on-surface": "#382f26",
-        "surface-container": "#271e16",
-        "on-secondary": "#2c2f41",
-        "tertiary-container": "#13b3fd",
-        "surface-tint": "#ffb86c",
-        "on-tertiary-fixed-variant": "#004c6e",
-        "on-primary-container": "#5b3400",
-        "secondary": "#c3c5dc",
-        "tertiary": "#89ceff",
-        "on-secondary-fixed": "#171a2c",
-        "on-tertiary-container": "#004261",
-        "surface-container-high": "#312820",
-        "secondary-container": "#45485b",
-        "primary-fixed-dim": "#ffb86c",
-        "primary": "#ffb86c",
-        "on-background": "#f0e0d2",
-        "inverse-surface": "#f0e0d2",
-        "on-surface": "#f0e0d2",
-        "on-secondary-container": "#b5b7ce",
-        "surface-container-highest": "#3d332a",
-        "on-tertiary-fixed": "#001e2f",
-        "on-tertiary": "#00344d",
-        "on-surface-variant": "#dac2ae",
-        "outline-variant": "#544434",
-        "tertiary-fixed": "#c9e6ff",
-        "surface": "#1a120a",
-        "surface-container-lowest": "#140d06",
-        "on-error": "#690005",
-        "on-secondary-fixed-variant": "#434659",
-        "error": "#ffb4ab",
-        "on-primary": "#492900",
-        "surface-container-low": "#221a12",
-        "secondary-fixed": "#dfe1f9",
-        "outline": "#a28d7a",
-        "inverse-primary": "#895100",
-        "primary-container": "#ef9311",
-        "surface-bright": "#41372e",
-        "background": "#1a120a",
-        "on-primary-fixed-variant": "#683d00",
-        "error-container": "#93000a",
-        "tertiary-fixed-dim": "#89ceff",
-        "primary-fixed": "#ffdcbc",
-        "surface-dim": "#1a120a",
-      },
-      borderRadius: {
-        DEFAULT: "0.25rem",
-        lg: "0.5rem",
-        xl: "0.75rem",
-        "2xl": "1rem",
-        "3xl": "1.5rem",
-        full: "9999px",
-      },
-      spacing: {
-        "margin-mobile": "16px",
-        "gutter": "24px",
-        "xl": "32px",
-        "3xl": "64px",
-        "xs": "4px",
-        "2xl": "48px",
-        "container-max": "1440px",
-        "lg": "24px",
-        "base": "8px",
-        "sm": "12px",
-        "md": "16px",
+        // Brand core — locked per identity guide
+        espresso: "#1A120A", // primary dark background
+        amber: {
+          DEFAULT: "#EF9311", // primary accent (CTAs, links, highlights)
+          light: "#FFB86C", // gradient endpoint / hover glow
+        },
+        // Supporting warm neutrals derived from the two brand anchors,
+        // so light mode and dark mode share the same temperature.
+        surface: {
+          dark: "#241811", // card/panel background on dark
+          darkRaised: "#2E2013", // slightly raised panel (header, terminal)
+          light: "#FFFFFF",
+          cream: "#FBF5EE", // page background on light mode
+        },
+        ink: {
+          DEFAULT: "#1A120A", // body text on light mode (mirrors bg-dark)
+          muted: "#8A7864", // secondary text on light mode
+        },
+        parchment: {
+          DEFAULT: "#FBF3E8", // body text on dark mode
+          muted: "#B7A493", // secondary text on dark mode
+        },
+        border: {
+          dark: "#3A2A18",
+          light: "#EDE1D3",
+        },
       },
       fontFamily: {
-        sora: ["Sora", "sans-serif"],
-        inter: ["Inter", "sans-serif"],
+        display: ["var(--font-space-grotesk)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "monospace"],
       },
-      fontSize: {
-        "display-lg": [
-          "48px",
-          { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "700" },
-        ],
-        "headline-lg": [
-          "32px",
-          { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" },
-        ],
-        "headline-md": [
-          "24px",
-          { lineHeight: "32px", fontWeight: "600" },
-        ],
-        "headline-lg-mobile": [
-          "24px",
-          { lineHeight: "32px", fontWeight: "600" },
-        ],
-        "body-lg": [
-          "18px",
-          { lineHeight: "28px", fontWeight: "400" },
-        ],
-        "body-md": [
-          "16px",
-          { lineHeight: "24px", fontWeight: "400" },
-        ],
-        "label-md": [
-          "14px",
-          { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "500" },
-        ],
-        "label-sm": [
-          "12px",
-          { lineHeight: "16px", letterSpacing: "0.05em", fontWeight: "600" },
-        ],
+      backgroundImage: {
+        "amber-gradient": "linear-gradient(135deg, #EF9311 0%, #FFB86C 100%)",
+        "ember-radial":
+          "radial-gradient(60% 50% at 50% 0%, rgba(239,147,17,0.16) 0%, rgba(239,147,17,0) 70%)",
+      },
+      keyframes: {
+        blink: {
+          "0%, 49%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
+        },
+        rise: {
+          "0%": { opacity: "0", transform: "translateY(14px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "pulse-glow": {
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(239,147,17,0.35)" },
+          "50%": { boxShadow: "0 0 0 8px rgba(239,147,17,0)" },
+        },
+      },
+      animation: {
+        blink: "blink 1s step-start infinite",
+        rise: "rise 0.5s ease-out both",
+        "pulse-glow": "pulse-glow 2.4s ease-in-out infinite",
       },
     },
   },
